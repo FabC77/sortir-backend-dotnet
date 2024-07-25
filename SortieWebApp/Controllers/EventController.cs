@@ -10,10 +10,10 @@ namespace SortieWebApp.Controllers
     public class SortieController : ControllerBase
     {
 
-        private ISortieService _sortieService { get; set; }
+        private IEventService _sortieService { get; set; }
         private readonly ILogger<SortieController> _logger;
 
-        public SortieController(ILogger<SortieController> logger, ISortieService sortieService)
+        public SortieController(ILogger<SortieController> logger, IEventService sortieService)
         {
             _logger = logger;
             _sortieService = sortieService;
@@ -21,7 +21,7 @@ namespace SortieWebApp.Controllers
 
         [HttpPost("Create")]
         //[Route("api/sortie/create")]
-        public IActionResult CreateSortie([FromBody] SortieDto sortieDto)
+        public IActionResult CreateSortie([FromBody] EventDto sortieDto)
         {
             try
             {
@@ -105,7 +105,7 @@ namespace SortieWebApp.Controllers
         }
         [HttpGet("Get")]
       //  public List<SortieDto> GetSorties()
-        public ActionResult<List<SortieDto>> GetSorties()
+        public ActionResult<List<EventDto>> GetSorties()
         {
             try
             {
@@ -114,7 +114,7 @@ namespace SortieWebApp.Controllers
             }
             catch (Exception ex)
             {
-                return new List<SortieDto>();
+                return new List<EventDto>();
             }
         }
     }

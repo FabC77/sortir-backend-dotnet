@@ -1,6 +1,6 @@
 @SortieWebApp_HostAddress = http://localhost:5096
 
-GET {{SortieWebApp_HostAddress}}/weatherforecast/
+GET {{SortirWebApp_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

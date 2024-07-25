@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace Application.validators
 {
-    public class SortieValidator : AbstractValidator<Sortie>
+    public class SortieValidator : AbstractValidator<Event>
     {
         public SortieValidator() 
         {

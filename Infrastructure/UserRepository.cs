@@ -11,9 +11,9 @@ namespace Infrastructure
             _userContext = userContexte;
         }
 
-        public List<Utilisateur> GetUsers()
+        public List<User> GetUsers()
         {
-            return _userContext.Utilisateur.AsQueryable().ToList();
+            return _userContext.Users.AsQueryable().ToList();
         }
 
     }

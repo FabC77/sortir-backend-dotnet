@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace Infrastructure
 {
-    public class SortieRepository : ISortieRepository
+    public class EventRepository : IEventRepository
     {
-        private SortieContext _sortieContext { get; set; }
-        public SortieRepository(SortieContext sortieContext)
+        private EventContext _sortieContext { get; set; }
+        public EventRepository(EventContext sortieContext)
         {
             _sortieContext = sortieContext;
         }
-        public List<Sortie> GetSorties()
+        public List<Event> GetSorties()
         {
             return _sortieContext.Sortie.AsQueryable().ToList();
         }
 
-        public bool CreateSortie(Sortie sortie)
+        public bool CreateSortie(Event sortie)
         {
             try
             {
@@ -34,7 +34,7 @@ namespace Infrastructure
             }
         }
 
-        public bool DeleteSortie(Sortie sortie)
+        public bool DeleteSortie(Event sortie)
         {
             try
             {
@@ -49,12 +49,12 @@ namespace Infrastructure
             }
         }
 
-        public Sortie GetSortie(int sortie)
+        public Event GetSortie(int sortie)
         {
             return _sortieContext.Sortie.Find(sortie);
         }
 
-        public bool CancelSortie(Sortie sortie)
+        public bool CancelSortie(Event sortie)
         {
             try
             {
@@ -69,7 +69,7 @@ namespace Infrastructure
             }
         }
 
-        public bool PublishSortie(Sortie sortie)
+        public bool PublishSortie(Event sortie)
         {
             try
             {

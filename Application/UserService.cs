@@ -14,10 +14,10 @@ namespace Application
             _mapper = mapper;
         }
 
-        public List<UtilisateurDto> GetUsers()
+        public List<UserDto> GetUsers()
         {
             var users = _userRepository.GetUsers();
-            return _mapper.Map<List<UtilisateurDto>>(users);   
+            return _mapper.Map<List<UserDto>>(users);   
 
         }
     }

@@ -4,22 +4,22 @@ using Domain.models.entities;
 using Infrastructure;
 namespace Application
 {
-    public class EtatService : IEtatService
+    public class EventStatusService : IEtatService
     {
         public readonly IMapper _mapper;
-        private IEtatRepository _etatRepository { get; set; }
+        private IEventStatusRepository _etatRepository { get; set; }
 
-        public EtatService(IEtatRepository etatRepository, IMapper mapper)
+        public EventStatusService(IEventStatusRepository etatRepository, IMapper mapper)
         {
            _etatRepository = etatRepository;
             _mapper = mapper;
         }
 
-        public List<EtatDto> GetEtats()
+        public List<EventStatusDto> GetEtats()
         {
 
             var etats = _etatRepository.GetEtats();
-           return _mapper.Map<List<EtatDto>>(etats);
+           return _mapper.Map<List<EventStatusDto>>(etats);
         }
     }
 }

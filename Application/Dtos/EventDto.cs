@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.models.entities
+namespace Application.Dtos
 {
-    public class Sortie
+    public class EventDto
     {
-        public int Id { get; set; }
+        public int Id { get; init; }
         public int IdEtat { get; set; }
         public int IdOrganisateur { get; set; }
         public string Libelle { get; set; }

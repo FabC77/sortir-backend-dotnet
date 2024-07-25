@@ -10,19 +10,19 @@ namespace Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services )
         {
-            services.AddScoped<IEtatService, EtatService>();
+            services.AddScoped<IEtatService, EventStatusService>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<ISortieService, SortieService>();
+            services.AddScoped<IEventService, EventService>();
 
             services.AddAutoMapper(configurations =>
             {
-                configurations.CreateMap<Etat, EtatDto>();
-                configurations.CreateMap<Utilisateur, UtilisateurDto>();
-                configurations.CreateMap<Sortie, SortieDto>();
+                configurations.CreateMap<EventStatus, EventStatusDto>();
+                configurations.CreateMap<User, UserDto>();
+                configurations.CreateMap<Event, EventDto>();
                 //chemin inverse : 
-                configurations.CreateMap<SortieDto, Sortie>();
-                configurations.CreateMap<UtilisateurDto, Utilisateur>();
-                configurations.CreateMap<EtatDto,Etat>();
+                configurations.CreateMap<EventDto, Event>();
+                configurations.CreateMap<UserDto, User>();
+                configurations.CreateMap<EventStatusDto,EventStatus>();
 
             });
 

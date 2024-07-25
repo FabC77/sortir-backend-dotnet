@@ -18,7 +18,7 @@ namespace SortieWebApp.Controllers
         }
 
         [HttpGet(Name = "GetUsers")]
-        public List<UtilisateurDto> GetUsers()
+        public List<UserDto> GetUsers()
         {
             return _userService.GetUsers();
         }

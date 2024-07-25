@@ -8,24 +8,24 @@ using Infrastructure;
 
 namespace Application
 {
-    public class SortieService : ISortieService
+    public class EventService : IEventService
     {
         private readonly IMapper _mapper;
-        private ISortieRepository _sortieRepository { get; set; }
-        public SortieService(ISortieRepository sortieRepository, IMapper mapper)
+        private IEventRepository _sortieRepository { get; set; }
+        public EventService(IEventRepository sortieRepository, IMapper mapper)
         {
             _sortieRepository = sortieRepository;
             _mapper = mapper;
         }
-        public List<SortieDto> GetSorties()
+        public List<EventDto> GetSorties()
         {
             var sorties = _sortieRepository.GetSorties();
-            return _mapper.Map<List<SortieDto>>(sorties);
+            return _mapper.Map<List<EventDto>>(sorties);
         }
 
-        public bool CreateSortie(SortieDto sortieDto)
+        public bool CreateSortie(EventDto sortieDto)
         {
-            Sortie sortie = _mapper.Map<Sortie>(sortieDto);
+            Event sortie = _mapper.Map<Event>(sortieDto);
             sortie.IdEtat = 2;
             SortieValidator validator = new SortieValidator();
 
@@ -38,7 +38,7 @@ namespace Application
         {
             //////
 
-            Sortie sortie = _sortieRepository.GetSortie(sortieId);
+            Event sortie = _sortieRepository.GetSortie(sortieId);
 
             if (sortie != null && sortie.IdOrganisateur.Equals(userId))
             {
@@ -52,7 +52,7 @@ namespace Application
 
         public bool CancelSortie(int sortieId, int userId)
         {
-            Sortie sortie = _sortieRepository.GetSortie(sortieId);
+            Event sortie = _sortieRepository.GetSortie(sortieId);
 
 
             if (sortie != null && sortie.IdOrganisateur.Equals(userId))
@@ -68,7 +68,7 @@ namespace Application
 
         public bool PublishSortie(int sortieId, int userId)
         {
-            Sortie sortie = _sortieRepository.GetSortie(sortieId);
+            Event sortie = _sortieRepository.GetSortie(sortieId);
 
 
             if (sortie != null && sortie.IdOrganisateur.Equals(userId))

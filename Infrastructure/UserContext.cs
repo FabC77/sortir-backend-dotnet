@@ -6,7 +6,7 @@ namespace Infrastructure
 {
     public class UserContext : DbContext
     {
-        public DbSet<Utilisateur> Utilisateur { get; set; }
+        public DbSet<User> Users { get; set; }
 
     
 

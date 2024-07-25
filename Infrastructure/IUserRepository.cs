@@ -5,6 +5,6 @@ namespace Infrastructure
 {
     public interface IUserRepository
     {
-        List<Utilisateur> GetUsers();
+        List<User> GetUsers();
     }
 }

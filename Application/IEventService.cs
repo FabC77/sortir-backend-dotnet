@@ -4,10 +4,10 @@ using FluentValidation.Results;
 
 namespace Application
 {
-    public interface ISortieService
+    public interface IEventService
     {
-        List<SortieDto> GetSorties();
-        bool CreateSortie(SortieDto sortieDto);
+        List<EventDto> GetSorties();
+        bool CreateSortie(EventDto sortieDto);
 
         bool DeleteSortie(int sortieId, int userId );
         bool CancelSortie(int sortieId, int userId);

@@ -4,6 +4,6 @@ namespace Application
 {
     public interface IEtatService
     {
-        List<EtatDto> GetEtats();
+        List<EventStatusDto> GetEtats();
     }
 }

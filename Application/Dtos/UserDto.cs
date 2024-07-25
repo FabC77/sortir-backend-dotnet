@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.models.entities
+namespace Application.Dtos
 {
-    public class Utilisateur
+    public class UserDto
     {
-        public int  Id{ get; set; }
+        public int Id { get; init; }
         public string Prenom { get; set; }
         public string Nom { get; set; }
     }

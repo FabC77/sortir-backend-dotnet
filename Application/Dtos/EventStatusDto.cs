@@ -2,7 +2,7 @@
 
 namespace Application.Dtos
 {
-    public class EtatDto
+    public class EventStatusDto
     {
         public int Id { get; init; }
         public string Libelle { get; set; }

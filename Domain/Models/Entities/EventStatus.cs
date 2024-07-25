@@ -2,9 +2,9 @@
 
 namespace Domain.models.entities
 {
-    public class Etat
+    public class EventStatus
     {
         public int Id { get; set; }
-        public string Libelle { get; set; }
+        public string Name { get; set; }
     }
 }
