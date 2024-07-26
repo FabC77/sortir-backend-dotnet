@@ -7,19 +7,19 @@ namespace Application
     public class EventStatusService : IEtatService
     {
         public readonly IMapper _mapper;
-        private IEventStatusRepository _etatRepository { get; set; }
+        private IEventStatusRepository _eventStatusRepository { get; set; }
 
-        public EventStatusService(IEventStatusRepository etatRepository, IMapper mapper)
+        public EventStatusService(IEventStatusRepository eventStatusRepository, IMapper mapper)
         {
-           _etatRepository = etatRepository;
+           _eventStatusRepository = eventStatusRepository;
             _mapper = mapper;
         }
 
-        public List<EventStatusDto> GetEtats()
+        public List<EventStatusDto> GetEventStatus()
         {
 
-            var etats = _etatRepository.GetEtats();
-           return _mapper.Map<List<EventStatusDto>>(etats);
+            var eventStatus = _eventStatusRepository.GetEventStatus();
+           return _mapper.Map<List<EventStatusDto>>(eventStatus);
         }
     }
 }

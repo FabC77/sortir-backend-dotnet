@@ -4,13 +4,13 @@ namespace Infrastructure.Repositories
 {
     public interface IEventRepository
     {
-        List<Event> GetSorties();
+        List<Event> GetEvents();
 
-        public bool CreateSortie(Event sortie);
-        Event GetSortie(int sortie);
+        public bool CreateEvent(Event sortie);
+        Event GetEvent(int sortie);
 
-        public bool DeleteSortie(Event sortie);
-        public bool CancelSortie(Event sortie);
-        public bool PublishSortie(Event sortie);
+        public bool DeleteEvent(Event sortie);
+        public bool CancelEvent(Event sortie);
+        public bool PublishEvent(Event sortie);
     }
 }

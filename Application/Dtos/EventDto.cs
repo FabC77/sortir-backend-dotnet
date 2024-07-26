@@ -9,12 +9,12 @@ namespace Application.Dtos
     public class EventDto
     {
         public int Id { get; init; }
-        public int IdEtat { get; set; }
-        public int IdOrganisateur { get; set; }
-        public string Libelle { get; set; }
-        public string Lieu { get; set; }
+        public int StatusId { get; set; }
+        public int OrganizerId { get; set; }
+        public string Name { get; set; }
+        public string Location { get; set; }
 
-        public DateTime DateDeb { get; set; }
-        public DateTime DateFin { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime Deadline { get; set; }
     }
 }

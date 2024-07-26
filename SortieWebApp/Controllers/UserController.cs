@@ -2,7 +2,7 @@
 using Application.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
-namespace SortieWebApp.Controllers
+namespace EventWebApp.Controllers
 {
     [ApiController]
     [Route("[controller]")]

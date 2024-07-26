@@ -4,15 +4,15 @@ namespace Infrastructure.Repositories
 {
     public class EventStatusRepository : IEventStatusRepository
     {
-        private EventStatusContext _etatContexte { get; set; }
-        public EventStatusRepository(EventStatusContext etatContexte)
+        private SortirContext _context { get; set; }
+        public EventStatusRepository(SortirContext eventStatusContexte)
         {
-            _etatContexte = etatContexte;
+            _context = eventStatusContexte;
         }
 
-        public List<EventStatus> GetEtats()
+        public List<EventStatus> GetEventStatus()
         {
-            return _etatContexte.Etat.AsQueryable().ToList();
+            return _context.EventStatus.AsQueryable().ToList();
         }
 
     }

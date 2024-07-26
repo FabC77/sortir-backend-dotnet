@@ -3,17 +3,17 @@ using Application.Dtos;
 using Domain.models.entities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace SortieWebApp.Controllers
+namespace EventWebApp.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class SortieController : ControllerBase
+    public class EventController : ControllerBase
     {
 
         private IEventService _sortieService { get; set; }
-        private readonly ILogger<SortieController> _logger;
+        private readonly ILogger<EventController> _logger;
 
-        public SortieController(ILogger<SortieController> logger, IEventService sortieService)
+        public EventController(ILogger<EventController> logger, IEventService sortieService)
         {
             _logger = logger;
             _sortieService = sortieService;
@@ -21,11 +21,11 @@ namespace SortieWebApp.Controllers
 
         [HttpPost("Create")]
         //[Route("api/sortie/create")]
-        public IActionResult CreateSortie([FromBody] EventDto sortieDto)
+        public IActionResult CreateEvent([FromBody] EventDto sortieDto)
         {
             try
             {
-              if( _sortieService.CreateSortie(sortieDto))
+              if( _sortieService.CreateEvent(sortieDto))
                 {
                     Console.WriteLine("après create sortie controller");
 
@@ -46,13 +46,13 @@ namespace SortieWebApp.Controllers
 
 
         // [HttpDelete("Delete/{id}")]
-        [HttpDelete("Delete/{idSortie}")]
-        public IActionResult DeleteSortie(int idSortie)
+        [HttpDelete("Delete/{idEvent}")]
+        public IActionResult DeleteEvent(int idEvent)
         {
             try
             {
                 int userId = 1; // temporaire. En réalité il faudrait récupérer le token d'authentification, etc.
-                if (_sortieService.DeleteSortie(idSortie, userId))
+                if (_sortieService.DeleteEvent(idEvent, userId))
                 {
                     return StatusCode(200, "deleted");
                 }
@@ -66,13 +66,13 @@ namespace SortieWebApp.Controllers
             }
         }
 
-        [HttpPut("Publish/{idSortie}")]
-        public IActionResult PublishSortie(int idSortie)
+        [HttpPut("Publish/{idEvent}")]
+        public IActionResult PublishEvent(int idEvent)
         {
             try
             {
                 int userId = 1; // temporaire. En réalité il faudrait récupérer le token d'authentification, etc.
-                if (_sortieService.PublishSortie(idSortie, userId))
+                if (_sortieService.PublishEvent(idEvent, userId))
                 {
                     return StatusCode(200, "published");
                 }
@@ -85,13 +85,13 @@ namespace SortieWebApp.Controllers
             }
         }
 
-        [HttpPut("Cancel/{idSortie}")]
-        public IActionResult CancelSortie(int idSortie)
+        [HttpPut("Cancel/{idEvent}")]
+        public IActionResult CancelEvent(int idEvent)
         {
             try
             {
                 int userId = 1; // temporaire. En réalité il faudrait récupérer le token d'authentification, etc.
-                if (_sortieService.CancelSortie(idSortie, userId))
+                if (_sortieService.CancelEvent(idEvent, userId))
                 {
                     return StatusCode(200, "canceled");
                 }
@@ -104,12 +104,12 @@ namespace SortieWebApp.Controllers
             }
         }
         [HttpGet("Get")]
-      //  public List<SortieDto> GetSorties()
-        public ActionResult<List<EventDto>> GetSorties()
+      //  public List<EventDto> GetEvents()
+        public ActionResult<List<EventDto>> GetEvents()
         {
             try
             {
-                return _sortieService.GetSorties();
+                return _sortieService.GetEvents();
               
             }
             catch (Exception ex)

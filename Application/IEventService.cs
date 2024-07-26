@@ -6,11 +6,11 @@ namespace Application
 {
     public interface IEventService
     {
-        List<EventDto> GetSorties();
-        bool CreateSortie(EventDto sortieDto);
+        List<EventDto> GetEvents();
+        bool CreateEvent(EventDto eventDto);
 
-        bool DeleteSortie(int sortieId, int userId );
-        bool CancelSortie(int sortieId, int userId);
-        bool PublishSortie(int sortieId, int userId);
+        bool DeleteEvent(int eventId, int userId );
+        bool CancelEvent(int eventId, int userId);
+        bool PublishEvent(int eventId, int userId);
     }
 }

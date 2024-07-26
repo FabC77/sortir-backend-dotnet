@@ -10,22 +10,23 @@ namespace Infrastructure.Repositories
 {
     public class EventRepository : IEventRepository
     {
-        private EventContext _sortieContext { get; set; }
-        public EventRepository(EventContext sortieContext)
+        private SortirContext _context { get; set; }
+        public EventRepository(SortirContext sortieContext)
         {
-            _sortieContext = sortieContext;
+            _context = sortieContext;
         }
-        public List<Event> GetSorties()
+        public List<Event> GetEvents()
         {
-            return _sortieContext.Sortie.AsQueryable().ToList();
+            return _context.Events.AsQueryable().ToList();
         }
 
-        public bool CreateSortie(Event sortie)
+        public bool CreateEvent(Event sortie)
         {
             try
             {
-                _sortieContext.Sortie.Add(sortie);
-                _sortieContext.SaveChanges();
+               // _context.Event.Add(sortie);
+                _context.Events.Add(sortie);
+                _context.SaveChanges();
                 return true;
             }
             catch (Exception ex)
@@ -35,12 +36,12 @@ namespace Infrastructure.Repositories
             }
         }
 
-        public bool DeleteSortie(Event sortie)
+        public bool DeleteEvent(Event sortie)
         {
             try
             {
-                _sortieContext.Sortie.Remove(sortie);
-                _sortieContext.SaveChanges();
+                _context.Events.Remove(sortie);
+                _context.SaveChanges();
                 return true;
             }
             catch (Exception ex)
@@ -50,17 +51,17 @@ namespace Infrastructure.Repositories
             }
         }
 
-        public Event GetSortie(int sortie)
+        public Event GetEvent(int sortie)
         {
-            return _sortieContext.Sortie.Find(sortie);
+            return _context.Events.Find(sortie);
         }
 
-        public bool CancelSortie(Event sortie)
+        public bool CancelEvent(Event sortie)
         {
             try
             {
-                _sortieContext.Sortie.Update(sortie);
-                _sortieContext.SaveChanges();
+                _context.Events.Update(sortie);
+                _context.SaveChanges();
                 return true;
             }
             catch (Exception ex)
@@ -70,12 +71,12 @@ namespace Infrastructure.Repositories
             }
         }
 
-        public bool PublishSortie(Event sortie)
+        public bool PublishEvent(Event sortie)
         {
             try
             {
-                _sortieContext.Sortie.Update(sortie);
-                _sortieContext.SaveChanges();
+                _context.Events.Update(sortie);
+                _context.SaveChanges();
                 return true;
             }
             catch (Exception ex)

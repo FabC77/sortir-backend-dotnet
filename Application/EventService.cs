@@ -17,65 +17,65 @@ namespace Application
             _sortieRepository = sortieRepository;
             _mapper = mapper;
         }
-        public List<EventDto> GetSorties()
+        public List<EventDto> GetEvents()
         {
-            var sorties = _sortieRepository.GetSorties();
+            var sorties = _sortieRepository.GetEvents();
             return _mapper.Map<List<EventDto>>(sorties);
         }
 
-        public bool CreateSortie(EventDto sortieDto)
+        public bool CreateEvent(EventDto sortieDto)
         {
             Event sortie = _mapper.Map<Event>(sortieDto);
             sortie.StatusId = 2;
-            SortieValidator validator = new SortieValidator();
+            EventValidator validator = new EventValidator();
 
             validator.ValidateAndThrow(sortie);
 
-            return _sortieRepository.CreateSortie(sortie); 
+            return _sortieRepository.CreateEvent(sortie); 
         }
 
-            public bool DeleteSortie(int sortieId, int userId )
+            public bool DeleteEvent(int sortieId, int userId )
         {
             //////
 
-            Event sortie = _sortieRepository.GetSortie(sortieId);
+            Event sortie = _sortieRepository.GetEvent(sortieId);
 
             if (sortie != null && sortie.OrganizerId.Equals(userId))
             {
 
-                return _sortieRepository.DeleteSortie(sortie);
+                return _sortieRepository.DeleteEvent(sortie);
 
             }
             else return false;
 
         }
 
-        public bool CancelSortie(int sortieId, int userId)
+        public bool CancelEvent(int sortieId, int userId)
         {
-            Event sortie = _sortieRepository.GetSortie(sortieId);
+            Event sortie = _sortieRepository.GetEvent(sortieId);
 
 
-            if (sortie != null && sortie.IdOrganisateur.Equals(userId))
+            if (sortie != null && sortie.OrganizerId.Equals(userId))
             {
-                sortie.IdEtat = 4;
+                sortie.StatusId = 4;
 
-                return _sortieRepository.CancelSortie(sortie);
+                return _sortieRepository.CancelEvent(sortie);
 
             }
             else return false;
 
         }
 
-        public bool PublishSortie(int sortieId, int userId)
+        public bool PublishEvent(int sortieId, int userId)
         {
-            Event sortie = _sortieRepository.GetSortie(sortieId);
+            Event sortie = _sortieRepository.GetEvent(sortieId);
 
 
-            if (sortie != null && sortie.IdOrganisateur.Equals(userId))
+            if (sortie != null && sortie.OrganizerId.Equals(userId))
             {
-                sortie.IdEtat = 1;
+                sortie.StatusId = 1;
 
-                return _sortieRepository.PublishSortie(sortie);
+                return _sortieRepository.PublishEvent(sortie);
 
             }
             else return false;

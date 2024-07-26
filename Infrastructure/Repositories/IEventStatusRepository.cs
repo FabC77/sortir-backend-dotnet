@@ -4,6 +4,6 @@ namespace Infrastructure.Repositories
     public interface IEventStatusRepository
     {
 
-        List<EventStatus> GetEtats();
+        List<EventStatus> GetEventStatus();
     }
 }

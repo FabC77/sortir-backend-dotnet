@@ -9,7 +9,7 @@ namespace Application.Dtos
     public class UserDto
     {
         public int Id { get; init; }
-        public string Prenom { get; set; }
-        public string Nom { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }

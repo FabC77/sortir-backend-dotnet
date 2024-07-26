@@ -1,4 +1,4 @@
-@SortieWebApp_HostAddress = http://localhost:5096
+@EventWebApp_HostAddress = http://localhost:5096
 
 GET {{SortirWebApp_HostAddress}}/weatherforecast/
 Accept: application/json
