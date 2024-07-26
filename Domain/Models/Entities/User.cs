@@ -18,7 +18,7 @@ namespace Domain.models.entities
         public string Email { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Telephone { get; set; }
+        public string PhoneNumber { get; set; }
         public string PasswordHash { get; set; }
         public bool IsAdmin { get; set; }
         public bool IsActive { get; set; } = true;
