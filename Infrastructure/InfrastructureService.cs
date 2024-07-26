@@ -35,5 +35,5 @@ namespace Infrastructure
         }
     }
 }
-//services.AddDbContext<EventContext>(options => options.UseSqlServer("Data Source=LAPTOP-Fab\\MSSQLSERVER04;Initial Catalog=sortieDb;Integrated Security=True;Trust Server Certificate=True"));
-//services.AddDbContext<EventStatusContext>(options => options.UseSqlServer("Data Source=LAPTOP-Fab\\MSSQLSERVER04;Initial Catalog=sortieDb;Integrated Security=True;Trust Server Certificate=True"));
+//services.AddDbContext<EventContext>(options => options.UseSqlServer("Data Source=LAPTOP-Fab\\MSSQLSERVER04;Initial Catalog=evDb;Integrated Security=True;Trust Server Certificate=True"));
+//services.AddDbContext<EventStatusContext>(options => options.UseSqlServer("Data Source=LAPTOP-Fab\\MSSQLSERVER04;Initial Catalog=evDb;Integrated Security=True;Trust Server Certificate=True"));

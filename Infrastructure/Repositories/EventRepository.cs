@@ -11,77 +11,77 @@ namespace Infrastructure.Repositories
     public class EventRepository : IEventRepository
     {
         private SortirContext _context { get; set; }
-        public EventRepository(SortirContext sortieContext)
+        public EventRepository(SortirContext evContext)
         {
-            _context = sortieContext;
+            _context = evContext;
         }
         public List<Event> GetEvents()
         {
             return _context.Events.AsQueryable().ToList();
         }
 
-        public bool CreateEvent(Event sortie)
+        public bool CreateEvent(Event ev)
         {
             try
             {
-               // _context.Event.Add(sortie);
-                _context.Events.Add(sortie);
+               // _context.Event.Add(ev);
+                _context.Events.Add(ev);
                 _context.SaveChanges();
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Une erreur s'est produite lors de la création de la sortie : {ex.Message}");
+                Console.WriteLine($"Une erreur s'est produite lors de la création de la ev : {ex.Message}");
                 return false;
             }
         }
 
-        public bool DeleteEvent(Event sortie)
+        public bool DeleteEvent(Event ev)
         {
             try
             {
-                _context.Events.Remove(sortie);
+                _context.Events.Remove(ev);
                 _context.SaveChanges();
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Une erreur s'est produite lors de la suppression de la sortie : {ex.Message}");
+                Console.WriteLine($"Une erreur s'est produite lors de la suppression de la ev : {ex.Message}");
                 return false;
             }
         }
 
-        public Event GetEvent(int sortie)
+        public Event GetEvent(int ev)
         {
-            return _context.Events.Find(sortie);
+            return _context.Events.Find(ev);
         }
 
-        public bool CancelEvent(Event sortie)
+        public bool CancelEvent(Event ev)
         {
             try
             {
-                _context.Events.Update(sortie);
+                _context.Events.Update(ev);
                 _context.SaveChanges();
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Une erreur s'est produite lors de l'annulation de la sortie : {ex.Message}");
+                Console.WriteLine($"Une erreur s'est produite lors de l'annulation de la ev : {ex.Message}");
                 return false;
             }
         }
 
-        public bool PublishEvent(Event sortie)
+        public bool PublishEvent(Event ev)
         {
             try
             {
-                _context.Events.Update(sortie);
+                _context.Events.Update(ev);
                 _context.SaveChanges();
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Une erreur s'est produite lors de la publication de la sortie : {ex.Message}");
+                Console.WriteLine($"Une erreur s'est produite lors de la publication de la ev : {ex.Message}");
                 return false;
             }
         }

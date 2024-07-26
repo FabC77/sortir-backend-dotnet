@@ -6,11 +6,11 @@ namespace Infrastructure.Repositories
     {
         List<Event> GetEvents();
 
-        public bool CreateEvent(Event sortie);
-        Event GetEvent(int sortie);
+        public bool CreateEvent(Event ev);
+        Event GetEvent(int ev);
 
-        public bool DeleteEvent(Event sortie);
-        public bool CancelEvent(Event sortie);
-        public bool PublishEvent(Event sortie);
+        public bool DeleteEvent(Event ev);
+        public bool CancelEvent(Event ev);
+        public bool PublishEvent(Event ev);
     }
 }

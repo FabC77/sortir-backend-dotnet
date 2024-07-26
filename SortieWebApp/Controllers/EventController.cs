@@ -10,24 +10,24 @@ namespace EventWebApp.Controllers
     public class EventController : ControllerBase
     {
 
-        private IEventService _sortieService { get; set; }
+        private IEventService _evService { get; set; }
         private readonly ILogger<EventController> _logger;
 
-        public EventController(ILogger<EventController> logger, IEventService sortieService)
+        public EventController(ILogger<EventController> logger, IEventService evService)
         {
             _logger = logger;
-            _sortieService = sortieService;
+            _evService = evService;
         }
 
         [HttpPost("Create")]
-        //[Route("api/sortie/create")]
-        public IActionResult CreateEvent([FromBody] EventDto sortieDto)
+        //[Route("api/ev/create")]
+        public IActionResult CreateEvent([FromBody] EventDto evDto)
         {
             try
             {
-              if( _sortieService.CreateEvent(sortieDto))
+              if( _evService.CreateEvent(evDto))
                 {
-                    Console.WriteLine("après create sortie controller");
+                    Console.WriteLine("après create ev controller");
 
                     return StatusCode(201, "ok");
 
@@ -38,9 +38,9 @@ namespace EventWebApp.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("dans exception sortie controller");
+                Console.WriteLine("dans exception ev controller");
 
-                return StatusCode(500, $"Une erreur s'est produite lors de la création de la sortie : {ex.Message}");
+                return StatusCode(500, $"Une erreur s'est produite lors de la création de la ev : {ex.Message}");
             }
         }
 
@@ -52,7 +52,7 @@ namespace EventWebApp.Controllers
             try
             {
                 int userId = 1; // temporaire. En réalité il faudrait récupérer le token d'authentification, etc.
-                if (_sortieService.DeleteEvent(idEvent, userId))
+                if (_evService.DeleteEvent(idEvent, userId))
                 {
                     return StatusCode(200, "deleted");
                 }
@@ -61,7 +61,7 @@ namespace EventWebApp.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Une erreur s'est produite lors de la suppression de la sortie : {ex.Message}");
+                return StatusCode(500, $"Une erreur s'est produite lors de la suppression de la ev : {ex.Message}");
 
             }
         }
@@ -72,7 +72,7 @@ namespace EventWebApp.Controllers
             try
             {
                 int userId = 1; // temporaire. En réalité il faudrait récupérer le token d'authentification, etc.
-                if (_sortieService.PublishEvent(idEvent, userId))
+                if (_evService.PublishEvent(idEvent, userId))
                 {
                     return StatusCode(200, "published");
                 }
@@ -80,7 +80,7 @@ namespace EventWebApp.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Une erreur s'est produite lors de la suppression de la sortie : {ex.Message}");
+                return StatusCode(500, $"Une erreur s'est produite lors de la suppression de la ev : {ex.Message}");
 
             }
         }
@@ -91,7 +91,7 @@ namespace EventWebApp.Controllers
             try
             {
                 int userId = 1; // temporaire. En réalité il faudrait récupérer le token d'authentification, etc.
-                if (_sortieService.CancelEvent(idEvent, userId))
+                if (_evService.CancelEvent(idEvent, userId))
                 {
                     return StatusCode(200, "canceled");
                 }
@@ -99,7 +99,7 @@ namespace EventWebApp.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Une erreur s'est produite lors de la suppression de la sortie : {ex.Message}");
+                return StatusCode(500, $"Une erreur s'est produite lors de la suppression de la ev : {ex.Message}");
 
             }
         }
@@ -109,7 +109,7 @@ namespace EventWebApp.Controllers
         {
             try
             {
-                return _sortieService.GetEvents();
+                return _evService.GetEvents();
               
             }
             catch (Exception ex)
