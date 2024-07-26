@@ -12,7 +12,7 @@ namespace Domain.models.entities
         [Key]
         public long Id { get; set; }
         //TODO revoir implémentation enums
-        public EventStatus Status { get; set; }
+        public int StatusId { get; set; }
         [Required]
         public Guid OrganizerId { get; set; }
         public string Name { get; set; }
@@ -24,5 +24,7 @@ namespace Domain.models.entities
         public DateTime StartDate { get; set; }
         public TimeSpan Duration { get; set; }
         public DateTime Deadline { get; set; }
+
+        public ICollection<User> Members { get; set; }
     }
 }

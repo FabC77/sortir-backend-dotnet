@@ -1,5 +1,6 @@
 ﻿using Domain.models.entities;
-namespace Infrastructure
+using Infrastructure.Contexts;
+namespace Infrastructure.Repositories
 {
     public class EventStatusRepository : IEventStatusRepository
     {

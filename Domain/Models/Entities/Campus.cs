@@ -9,6 +9,7 @@ namespace Domain.models.entities
         [Required]
         public string Name { get; set; }
 
-public ICollection<User> Students { get; set; }
+        public ICollection<User> Students { get; set; }
+        public ICollection<Event> Events { get; set; }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using Domain.models.entities;
+using Infrastructure.Contexts;
+using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,7 +15,7 @@ namespace Infrastructure
             services.AddScoped<IEventRepository, EventRepository>();
 
             services.AddDbContext<EventStatusContext>(options => options.UseSqlServer("Data Source=LAPTOP-Fab\\MSSQLSERVER04;Initial Catalog=sortieDb;Integrated Security=True;Trust Server Certificate=True"));
-            services.AddDbContext<UserContext>(options => options.UseSqlServer("Data Source=LAPTOP-Fab\\MSSQLSERVER04;Initial Catalog=sortieDb;Integrated Security=True;Trust Server Certificate=True"));
+            services.AddDbContext<SortirContext>(options => options.UseSqlServer("Data Source=LAPTOP-Fab\\MSSQLSERVER04;Initial Catalog=sortieDb;Integrated Security=True;Trust Server Certificate=True"));
             services.AddDbContext<EventContext>(options => options.UseSqlServer("Data Source=LAPTOP-Fab\\MSSQLSERVER04;Initial Catalog=sortieDb;Integrated Security=True;Trust Server Certificate=True"));
 
             return services;

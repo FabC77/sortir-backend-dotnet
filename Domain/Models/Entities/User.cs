@@ -13,7 +13,6 @@ namespace Domain.models.entities
     {
         [Key]
         public Guid  Id{ get; set; }
-
         [Required]
         public string Email { get; set; }
         public string FirstName { get; set; }
@@ -22,6 +21,7 @@ namespace Domain.models.entities
         public string PasswordHash { get; set; }
         public bool IsAdmin { get; set; }
         public bool IsActive { get; set; } = true;
+        public ICollection<Event> EventsCreated { get; set; }
 
     }
 }

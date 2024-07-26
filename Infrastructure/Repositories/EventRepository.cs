@@ -1,11 +1,12 @@
 ﻿using Domain.models.entities;
+using Infrastructure.Contexts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure
+namespace Infrastructure.Repositories
 {
     public class EventRepository : IEventRepository
     {

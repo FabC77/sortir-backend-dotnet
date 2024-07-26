@@ -1,7 +1,7 @@
 ﻿using Application.Dtos;
 using AutoMapper;
 using Domain.models.entities;
-using Infrastructure;
+using Infrastructure.Repositories;
 namespace Application
 {
     public class UserService : IUserService

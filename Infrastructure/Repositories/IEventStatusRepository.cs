@@ -1,5 +1,5 @@
 ﻿using Domain.models.entities;
-namespace Infrastructure
+namespace Infrastructure.Repositories
 {
     public interface IEventStatusRepository
     {

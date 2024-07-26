@@ -4,7 +4,7 @@ using AutoMapper;
 using Domain.models.entities;
 using FluentValidation;
 using FluentValidation.Results;
-using Infrastructure;
+using Infrastructure.Repositories;
 
 namespace Application
 {
@@ -26,7 +26,7 @@ namespace Application
         public bool CreateSortie(EventDto sortieDto)
         {
             Event sortie = _mapper.Map<Event>(sortieDto);
-            sortie.IdEtat = 2;
+            sortie.StatusId = 2;
             SortieValidator validator = new SortieValidator();
 
             validator.ValidateAndThrow(sortie);
@@ -40,7 +40,7 @@ namespace Application
 
             Event sortie = _sortieRepository.GetSortie(sortieId);
 
-            if (sortie != null && sortie.IdOrganisateur.Equals(userId))
+            if (sortie != null && sortie.OrganizerId.Equals(userId))
             {
 
                 return _sortieRepository.DeleteSortie(sortie);
