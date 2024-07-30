@@ -16,7 +16,7 @@ namespace Domain.models.entities
         [Required]
         public int StatusId { get; set; }
         [Required]
-        public string OrganizerId { get; set; }
+        public Guid OrganizerId { get; set; }
         //public User Organizer { get; set; }
         public string Name { get; set; }
         public string Infos { get; set; }
