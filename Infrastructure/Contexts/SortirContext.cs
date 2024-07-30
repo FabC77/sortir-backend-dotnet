@@ -1,12 +1,14 @@
 ﻿using Domain.models.entities;
 using Domain.Models.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 
 namespace Infrastructure.Contexts
 {
-    public class SortirContext : DbContext
+    public class SortirContext : IdentityDbContext<IdentityUser>
     {
         private readonly IConfiguration _configuration;
         public DbSet<User> Users { get; set; }

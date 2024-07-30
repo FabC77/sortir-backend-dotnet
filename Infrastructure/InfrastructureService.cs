@@ -1,6 +1,7 @@
 ﻿using Domain.models.entities;
 using Infrastructure.Contexts;
 using Infrastructure.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,6 +31,9 @@ namespace Infrastructure
 
 
             services.AddDbContext<SortirContext>(options => options.UseSqlServer(connectionString));
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<SortirContext>()
+                .AddDefaultTokenProviders();
 
             return services;
         }
