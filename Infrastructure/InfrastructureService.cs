@@ -29,11 +29,11 @@ namespace Infrastructure
 
             string connectionString = _configuration.GetConnectionString("SortirNVME");
 
-
             services.AddDbContext<SortirContext>(options => options.UseSqlServer(connectionString));
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<SortirContext>()
                 .AddDefaultTokenProviders();
+
 
             return services;
         }

@@ -1,4 +1,5 @@
 using Application;
+using Domain.models.entities;
 using Infrastructure;
 using Infrastructure.Contexts;
 using Microsoft.AspNetCore.Identity;
@@ -13,10 +14,6 @@ builder.Services.AddDbContext<SortirContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("ServerNVME")));
 
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddEntityFrameworkStores<SortirContext>();
-
-//builder.Services.AddRazorPages();
 
 builder.Services.Configure<IdentityOptions>(options =>
 {

@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure.Contexts
 {
-    public class SortirContext : IdentityDbContext<IdentityUser>
+    public class SortirContext : IdentityDbContext<User>
     {
         private readonly IConfiguration _configuration;
         public DbSet<User> Users { get; set; }

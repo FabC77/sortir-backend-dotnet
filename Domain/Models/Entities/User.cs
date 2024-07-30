@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,16 +11,15 @@ using System.Threading.Tasks;
 namespace Domain.models.entities
 {
     [Index(nameof(Email), IsUnique = true)]
-    public class User
+    public class User : IdentityUser
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+       /* [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid  Id{ get; set; }
         [Required]
-        public string Email { get; set; }
+        public string Email { get; set; } */
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
-        public string PasswordHash { get; set; }
         public bool IsAdmin { get; set; }
         public bool IsActive { get; set; } = true;
         public ICollection<Event> EventsCreated { get; set; }
