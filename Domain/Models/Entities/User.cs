@@ -22,6 +22,7 @@ namespace Domain.models.entities
         public string? PhoneNumber { get; set; }
         public bool IsAdmin { get; set; }
         public bool IsActive { get; set; } = true;
+        //TODO vérifier la logique > 
         public ICollection<Event> EventsCreated { get; set; } = new HashSet<Event>();
         public ICollection<Event> Events{ get; set; } = new HashSet<Event>();
 
