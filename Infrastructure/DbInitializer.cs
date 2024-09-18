@@ -95,6 +95,7 @@ new EventStatus {Name="Open" },
                 context.Campuses.AddRange(campuses);
                context.SaveChanges();
             }
+
             /* if (!context.Users.Any())
              {
                         Console.WriteLine("Ajout des utilisateurs...");
